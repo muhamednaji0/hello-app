@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: hello-app
-        image: image: muhamednaji0/hello-app:latest
+        image: muhamednaji0/hello-app:latest
         ports:
         - containerPort: 5000
 ---
