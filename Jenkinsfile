@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKERHUB_USERNAME = 'YOUR_DOCKERHUB_USERNAME'
+        DOCKERHUB_USERNAME = 'muhamednaji'
         IMAGE_NAME = 'hello-app'
         IMAGE_TAG = "v${BUILD_NUMBER}"
         AWS_DEFAULT_REGION = 'eu-west-1'
@@ -40,7 +40,7 @@ pipeline {
             steps {
                 echo "Deploying to EKS..."
                 sh "aws eks update-kubeconfig --region ${AWS_DEFAULT_REGION} --name ${CLUSTER_NAME}"
-                sh "sed -i 's|YOUR_DOCKERHUB_USERNAME/hello-app:latest|${DOCKERHUB_USERNAME}/${IMAGE_NAME}:${IMAGE_TAG}|g' k8s/deployment.yaml"
+                sh "sed -i 's|muhamednaji/hello-app:latest|${DOCKERHUB_USERNAME}/${IMAGE_NAME}:${IMAGE_TAG}|g' k8s/deployment.yaml"
                 sh "kubectl apply -f k8s/deployment.yaml"
                 echo "Deployed successfully!"
             }
