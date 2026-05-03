@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: hello-app
-        image: YOUR_DOCKERHUB_USERNAME/hello-app:latest
+        image: image: muhamednaji0/hello-app:latest
         ports:
         - containerPort: 5000
 ---
